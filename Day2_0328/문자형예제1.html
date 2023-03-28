@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <h1>문자형 예제</h1>
+</body>
+
+</html>
+<script>
+  let str1 = "Hello";
+  let str2 = 'Single quotes are ok too';
+  let str3 = `backtick도 가능합니다. ${str1}`;
+
+  console.log(str1);
+  console.log(str2);
+  console.log(str3);
+
+  let name = "홍길동";
+  let age = 34;
+  let address = "서울시 관악구 대학동";
+
+  result1 = "이름:" + name + " 나이:" + age + " 주소:" + address;
+  result2 = `이름:${name} 나이:${age} 주소:${address}`;
+
+  console.log(result1);
+  console.log(result2);
+
+  str1 = `
+        진달래
+              김소월
+                    나 보기가 역겨워 가실때에는
+                    말없이 고이 보내 드리오리다
+  `;
+  console.log(str1); // 백틱 내 들여쓰기&줄바꿈도 문자열로 모두 출력됨
+
+  str1 = `
+      이름:${name}
+      나이:${age}
+      주소:${address}
+  `;
+  console.log(str1);
+
+</script>

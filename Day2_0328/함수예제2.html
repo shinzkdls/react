@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <h1>함수 예제</h1>
+</body>
+
+</html>
+<script>
+  function showMessage(text) {
+
+    // if(text = undefined){
+    //   text = '빈 문자열';
+    // }  //아래와 주석부분이 같은 의미
+
+    text = text || '빈 문자열';
+    console.log(text);
+  }
+
+  showMessage(); // 빈 문자열
+  showMessage("안녕하세요");
+
+</script>
