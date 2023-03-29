@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <h1>화살표함수(이차원배열) 예제</h1>
+</body>
+
+</html>
+<script>
+  let a = function () {
+    console.log("Hello");
+  } //리턴값이 없는 함수
+
+  let result = a();
+  console.log(result); //주는게 없기때문에 result는 undefined
+
+  let nums = [10, 20, 30, 40, 50, 60, 70, 80, 90, 100];
+
+  //배열의 요소, index 자바스크립트가 제공하는 람다들이 모두 이 구조
+  nums.map((x, i) => {
+    console.log(i, x);
+    return x; //반드시 리턴해줘야됨
+  });
+
+  //2차원의 경우
+  nums = [[10, 20, 30], [40, 50, 60], [70, 80, 90]];
+  nums.map((x, i) => {  //이때의 x는 1차원배열 각각을 나타냄
+    console.log(i, x);
+    return x; //반드시 리턴해줘야됨
+  });
+
+  nums.map((x, i) => {  //이때의 x는 1차원배열 각각을 나타냄
+    x.map((y, j) => {
+      console.log(j, y);
+      return y; //반드시 리턴해줘야됨
+    });
+    return x; //반드시 리턴해줘야됨
+  });
+
+  //리턴을 뺴고 변수에 담는다면?
+  result = nums.map((x, i) => {  //이때의 x는 1차원배열 각각을 나타냄
+    x.map((y, j) => {
+      console.log(j, y);
+      //return y; //반드시 리턴해줘야됨
+    });
+    return x; //반드시 리턴해줘야됨
+  });
+  console.log(result);
+
+</script>

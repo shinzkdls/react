@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  문제1. 사각형 면적 구하기<br />
+  가로 : <input type="text" name="width" id="width"><br />
+  세로 : <input type="text" name="height" id="height"><br />
+  <button onclick="rect()">면적</button>&nbsp;&nbsp;
+  <span id="result"></span><br /><br />
+
+  문제2. 이름, 일주일간 근무시간, 시간당 급여액을 입력받아 주급을 계산하세요.<br />
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;단, 20시간 초과 근무시 초과근무에 대해서는 초과수당을 지급하세요.<br />
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;초과수당은 시간당급여액의 50% 입니다.<br />
+  이름 : <input type="text" name="name" id="name"><br />
+  근무시간 : <input type="text" name="worktime" id="worktime"><br />
+  시간당급여액 : <input type="text" name="sal" id="sal"><br />
+  <button onclick="totalSal()">급여계산</button>&nbsp;&nbsp;
+  <span id="totalSal"></span><br /><br />
+
+</body>
+
+</html>
+<script>
+  function rect() {
+    x = document.getElementById("width").value;
+    y = document.getElementById("height").value;
+    document.getElementById("result").innerHTML = parseInt(x) * parseInt(y);
+  }
+
+  function totalSal() {
+    name = document.getElementById("name").value;
+    worktime = document.getElementById("worktime").value;
+    sal = document.getElementById("sal").value;
+
+    let basicSal = parseInt(worktime) * parseInt(sal);
+    // let overSal = (parseInt(worktime) - 20) * parseInt(sal) * 0.5;
+    // if (parseInt(worktime) < 20)
+    //   overSal = 0;
+    let overSal = parseInt(worktime) < 20 ? 0 : (parseInt(worktime) - 20) * parseInt(sal) * 0.5;
+    document.getElementById("totalSal").innerHTML = `${name}님의 기본급: ${basicSal} / 초과수당: ${overSal} / 합계: ${basicSal + overSal}`
+  }
+</script>

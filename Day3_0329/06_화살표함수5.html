@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <h1>화살표함수 예제</h1>
+</body>
+
+</html>
+<script>
+  let rect = [
+    { w: 5, h: 4 },
+    { w: 15, h: 14 },
+    { w: 7, h: 8 },
+    { w: 9, h: 4 },
+    { w: 5, h: 7 }
+  ];
+
+  //map활용
+  let r = rect.map(r => {
+    r.len = (r.w + r.h) * 2;
+    r.surface = r.w * r.h;
+    return r;
+    //리턴을 해주지않으면 r에는 객체의 주소가 반영되지않음,
+    //하지만 rect 객체자체에는 이미 len과 surface가 추가돼있음
+  });
+
+  console.log(r);
+  console.log(rect);
+
+  //rect 와 r은 같은 객체의 주소를 담고있는 변수가 된다.
+  //따라서 위 로그출력시 동일한 결과 출력(len과 surface가 추가된)
+
+</script>

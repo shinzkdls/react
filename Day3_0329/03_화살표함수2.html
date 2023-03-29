@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <h1>화살표함수 예제</h1>
+</body>
+
+</html>
+<script>
+  let arr = [1, 2, 4, 7, 9, 12, 24, 35, 27, 6];
+  // 분해해서 각각 홀수와 짝수를 다른배열에 저장하고 싶다.
+  let odd = []; //홀수
+  let even = []; //짝수
+
+  for (i = 0; i < arr.length; i++) {
+    if (arr[i] % 2 == 0)
+      even.push(arr[i]);
+    else
+      odd.push(arr[i]);
+  }
+
+  console.log(odd);
+  console.log(even);
+
+  let odd2 = []; //홀수
+  let even2 = []; //짝수
+  //배열에 filter함수 - 조건을 주면 조건에 맞는 데이터만 배열로 만들어 반환한다.
+  //filter - 매개변수가 하나이고 반환값이 true 또는 false
+  //         결과값이 true인것만 묶어서 준다.
+  function isEven(e) {
+    return e % 2 == 0;
+  }
+
+  even2 = arr.filter(isEven);
+  console.log(even2);
+
+  odd2 = arr.filter(e => e % 2 == 1);
+  console.log(odd2);
+
+  //10보다 큰것만 고르자
+  let result = arr.filter(x => x > 10);
+  console.log(result);
+
+  words = ["school", "survey", "assembly", "desk", "pen", "pc", "os", "linux", "window"];
+  //단어길이 5개이상인것만
+  result = words.filter(w => w.length >= 5);
+  console.log(result);
+
+  //map = 매개변수 하나 -> 매개변수에 연산을 수행해서 반환한다.
+  arr2 = arr.map(x => x + 10);
+  console.log(arr2);
+
+  //짝수에 10을 더해서
+  arr3 = arr.filter(x => x % 2 == 0)
+    .map(x => x + 10);
+  console.log(arr3);
+
+  //홀수에 10 곱해서 출력하기
+  arr.filter(x => x % 2 == 1) //중간연산 - 배열을 반환한다.
+    .map(x => x * 10)
+    .forEach(x => console.log(x)); //최종연산
+
+  //단어길이 5글자이상을 찾아서 대문자로 만들어서 출력하기
+  words.filter(w => w.length >= 5)
+    .map(w => w.toUpperCase())
+    .forEach(w => console.log(w)); //최종연산
+</script>

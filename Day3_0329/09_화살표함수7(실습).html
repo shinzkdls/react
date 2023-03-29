@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <h1>화살표함수(실습) 예제</h1>
+</body>
+
+</html>
+<script>
+  let student = [
+    { "name": "홍길동", kor: 90, eng: 90, mat: 80 },
+    { "name": "장길산", kor: 80, eng: 80, mat: 100 },
+    { "name": "임꺽정", kor: 70, eng: 70, mat: 90 },
+    { "name": "장승업", kor: 60, eng: 80, mat: 60 },
+    { "name": "홍경래", kor: 70, eng: 50, mat: 40 },
+  ];
+
+  //총점, 평균
+  student.map(item => {
+    item.total = item.kor + item.eng + item.mat;
+    item.avg = item.total / 3;
+    return item;
+  }).forEach(item => {
+    console.log(`${item.name} ${item.total} ${item.avg}`);
+  });
+
+</script>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <h1>화살표함수(실습) 예제</h1>
+</body>
+
+</html>
+<script>
+  let employees = [
+    { "name": "홍길동", "worktime": 40, "sal": 10000 },
+    { "name": "임꺽정", "worktime": 15, "sal": 20000 },
+    { "name": "장길산", "worktime": 20, "sal": 20000 },
+    { "name": "강감찬", "worktime": 30, "sal": 15000 },
+    { "name": "이순신", "worktime": 40, "sal": 30000 }
+  ];
+
+  let e = employees.map((e) => {
+    e.totalsal = e.sal * e.worktime;
+    return e;
+  });
+
+  console.log(e);
+
+</script>
