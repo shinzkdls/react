@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <p>소문자를 입력하면 대문자로 바꿔준다</p>
+  Enter Your Name: <input type="text" id="fname" onkeyup="goKeyUp()" onkeydown="goKeyDown()" onkeypress="goKeyPress()">
+</body>
+
+</html>
+
+<script>
+
+  function goKeyDown() {
+    console.log(event.key);
+    console.log(event.keyCode);
+    console.log("keyDown");
+  }
+
+  function goKeyUp() {
+    console.log("keyUp");
+    var x = document.getElementById("fname"); // 객체가져오기
+    x.value = x.value.toUpperCase();
+  }
+
+  function goKeyPress() {
+    console.log("keyPress");
+  }
+</script>

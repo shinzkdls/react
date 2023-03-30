@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <input type="text" name="product" id="product">
+  <button type="button" id="btnAdd">추가</button>&nbsp;&nbsp;
+  <button type="button" id="btnDel">삭제</button>&nbsp;&nbsp;
+
+  <ul id="coffee">
+    <li>카카오</li>
+  </ul>
+</body>
+
+</html>
+
+<script>
+  // 1. 교재방법
+  // window.onload = () => {
+  //   document.getElementById("btnAdd").addEventListener("click", funAdd);
+  //   document.getElementById("btnDel").addEventListener("click", funDel);
+  // }
+
+  // function funAdd() {
+  //   var coffee = document.getElementById("coffee");
+  //   var child = document.createElement("li");
+  //   child.innerHTML = document.getElementById("product").value;
+  //   coffee.appendChild(child);
+  // }
+
+  // function funDel() {
+  //   var coffee = document.getElementById("coffee");
+  //   console.log(coffee.children.length);
+  //   if (coffee.children.length > 1)
+  //     coffee.removeChild(coffee.lastChild); // 맨 마지막꺼 삭제 index
+  //   else
+  //     alert("더 이상 삭제 불가")
+  // }
+
+  // 2. 다른방법
+  window.onload = () => {
+    document.getElementById("btnAdd").addEventListener("click", () => {
+      // 1. ul태그에 대한 객체를 먼저 가져온다.
+      var coffee = document.getElementById("coffee");
+      // 2. li태그 객체를 생성한다.
+      var child = document.createElement("li");
+      child.innerHTML = document.getElementById("product").value;
+      // 3. ul태그에 덧붙인다.
+      coffee.appendChild(child);
+
+      document.getElementById("product").value = "";
+      document.getElementById("product").focus();
+    });
+    document.getElementById("btnDel").addEventListener("click", () => {
+      var coffee = document.getElementById("coffee");
+      console.log(coffee.children.length);
+      if (coffee.children.length > 1)
+        coffee.removeChild(coffee.lastChild); // 맨 마지막꺼 삭제 index
+      else
+        alert("더 이상 삭제 불가")
+    });
+  }
+</script>

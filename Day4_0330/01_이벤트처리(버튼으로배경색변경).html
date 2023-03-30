@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <button type="button" id="btn1" style="background-color: aqua" onclick="changeBackground(this)">배경색</button>
+  <button type="button" id="btn2" style="background-color: blue" onclick="changeBackground(this)">배경색</button>
+  <button type="button" id="btn3" style="background-color: red" onclick="changeBackground(this)">배경색</button>
+  <button type="button" id="btn4" style="background-color: magenta" onclick="changeBackground(this)">배경색</button>
+  <button type="button" id="btn5" style="background-color: maroon" onclick="changeBackground(this)">배경색</button>
+  <button type="button" id="btn6" style="background-color: green" onclick="changeBackground(this)">배경색</button>
+  <button type="button" id="btn7" style="background-color: lightcoral" onclick="changeBackground(this)">배경색</button>
+</body>
+
+</html>
+
+<script>
+  function changeBackground(me) {
+    console.log(event); // 이벤트 객체의 대한 정보를 출력함
+    console.log(event.target); // 이벤트를 실행시킨 객체의 대한 정보를 출력함
+    console.log(event.target.id); // 이벤트를 실행시킨 객체의 대한 정보를 출력함
+    document.getElementsByTagName("body")[0].style.backgroundColor = me.style.backgroundColor;
+  }
+</script>

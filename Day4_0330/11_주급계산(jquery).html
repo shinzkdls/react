@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+</head>
+
+<body>
+  이름 : <input type="text" name="name" id="name"><br />
+  근무시간 : <input type="text" name="worktime" id="worktime"><br />
+  시간당급여액 : <input type="text" name="sal" id="sal"><br />
+  <button type="button" id="btnConfirm">급여계산</button>&nbsp;&nbsp;
+  <button type="button" id="btnClear">새로입력</button>&nbsp;&nbsp;
+  <div id="totalSal"></div>
+</body>
+
+</html>
+
+<script>
+  //window.onload 대신
+  $(document).ready(() => {
+    $("#btnConfirm").click(() => {
+      name = $("#name").val();
+      worktime = parseInt($("#worktime").val());
+      sal = parseInt($("#sal").val());
+
+      basicSal = parseInt(worktime) * parseInt(sal);
+      overSal = parseInt(worktime) < 20 ? 0 : (parseInt(worktime) - 20) * parseInt(sal) * 0.5;
+
+      $("#totalSal").text(`${name}님의 기본급여: ${basicSal} 추가수당: ${overSal} 총급여: ${basicSal + overSal}`);
+    });
+
+    $("#btnClear").click(() => {
+      $("input").val("");
+      $("#totalSal").text("");
+    });
+
+  });
+</script>
