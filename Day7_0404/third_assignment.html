@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+</head>
+
+<body>
+  <form name="myform" action="/score" method="get">
+    이름 : <input type="text" name="name" id="name"><br />
+    국어 : <input type="text" name="kor" id="kor"><br />
+    영어 : <input type="text" name="eng" id="eng"><br />
+    수학 : <input type="text" name="mat" id="mat"><br />
+    <button type="button" id="btnConfirm">결과확인</button><br />
+  </form>
+  <div id="score"></div>
+</body>
+
+</html>
+
+<script>
+  window.onload = () => {
+    let btnConfirm = document.getElementById("btnConfirm");
+
+    btnConfirm.addEventListener("click", () => {
+      kor = parseInt(document.getElementById("kor").value);
+      eng = parseInt(document.getElementById("eng").value);
+      mat = parseInt(document.getElementById("mat").value);
+      if (kor < 0 || kor > 100 || eng < 0 || eng > 100 || mat < 0 || mat > 100)
+        alert("점수의 범위는 0~100 입니다.");
+      else {
+        //form객체에 대한 접근 방법 document.name속성
+        document.myform.submit();
+      }
+    });
+  }
+</script>
