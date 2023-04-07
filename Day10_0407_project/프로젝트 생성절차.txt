@@ -1,0 +1,20 @@
+1. 프로젝트를 만들 폴더로 먼저 이동한다
+  cd 경로
+
+2. express project명 --view=ejs
+  npm install - g express-generator 프로그램을 먼저 설치해야 express프로그램 사용이 가능하다.
+  cd 프로젝트명 -- package.json파일이 있는 폴더로 이동해야한다.
+  처음에 생성하면 node_modules 폴더가 없다.
+  npm install -- package.json 파일을 읽어서 node_modules 폴더를 만들고 이폴더에 필요한 라이브러리를 설치한다.
+
+  시작: npm start 또는 nodemon start(nodemon프로그램이 설치되어 있을때)
+
+  3. 게시판 만들기
+  board_list.ejs
+  board_write.ejs
+  board.view.ejs
+  확장자를 ejs로 바꿔서 views폴더에 넣는다.
+
+  4. 라우터 만들기(board.js, member.js)  - 업무별로 라우터파일 만들고
+ 
+  5. app.js에서 라우터 import, require rel과 등록
