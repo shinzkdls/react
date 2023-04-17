@@ -1,0 +1,10 @@
+           (리액트)
+frontend - 화면 ui, 디자인
+           input 사용자입력을 받아서 ---------> axios
+                                                (AJAX라이브러리)
+                                                비동기로 서버와 정보를 주고받는 담당
+
+backend - nodejs 기반의 express : 디비 서버에 붙어서 데이터 읽고 쓰기
+
+frontend가 heroList를 요구하면 axios를 통해서 axios가 backend에 요청을하고 디비서버에서 데이터를 읽은 후
+axios에게 json형태로 보냄

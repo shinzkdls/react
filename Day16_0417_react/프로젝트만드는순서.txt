@@ -1,0 +1,95 @@
+-------------------------------1. 원하는폴더 경로로 이동-------------------------------
+-------------------------------2. create-react-app 프로젝트명-------------------------------
+-------------------------------3. cd 프로젝트명-------------------------------
+-------------------------------4. 패키지 설치하기 -------------------------------
+   npm install react-router-dom
+   npm install bootstrap
+   npm install axios
+
+-------------------------------5. index.js 바꾸기-------------------------------
+import React from "react";
+import ReactDOM from "react-dom/client";
+import "./index.css";
+import App from "./App";
+import reportWebVitals from "./reportWebVitals";
+import { BrowserRouter } from "react-router-dom";
+
+const root = ReactDOM.createRoot(document.getElementById("root"));
+// root.render(
+//   <React.StrictMode>
+//     <App />
+//   </React.StrictMode>
+// );
+
+root.render(
+  <BrowserRouter>
+    <App />
+  </BrowserRouter>
+);
+
+-------------------------------6. App.js 라우터 놓기-------------------------------
+import logo from "./logo.svg";
+import "./App.css";
+import { Routes, Route, Outlet, Link } from "react-router-dom";
+import Layout from "./component/Layout";
+import Home from "./component/Home";
+import About from "./component/About";
+import Fortest from "./component/Fortest";
+import Fortest2 from "./component/Fortest2";
+import Gugudan from "./component/Gugudan";
+
+function App() {
+  return (
+    <div className="App">
+      <h1>라우터 연습</h1>
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          {/* 전체적인 라우터 골격은 Latout컴포넌트에 넣는다. */}
+          <Route index element={<Home />} />
+          <Route path="about" element={<About />} />
+          <Route path="for1" element={<Fortest />} />
+          <Route path="for2" element={<Fortest2 />} />
+          <Route path="gugu" element={<Gugudan />} />
+        </Route>
+      </Routes>
+    </div>
+  );
+}
+
+export default App;
+
+-------------------------------7. Layout.js 수정하기-------------------------------
+import React, { useState } from "react";
+import { Routes, Route, Outlet, Link } from "react-router-dom";
+
+//화면 구성을 담당할 함수
+function Layout(props) {
+  return (
+    <div>
+      <nav>
+        <ul>
+          <li>
+            <Link to="/">Home</Link>
+          </li>
+          <li>
+            <Link to="/about">About</Link>
+          </li>
+          <li>
+            <Link to="/for1">for1</Link>
+          </li>
+          <li>
+            <Link to="/for2">for2</Link>
+          </li>
+          <li>
+            <Link to="/gugu">gugu</Link>
+          </li>
+        </ul>
+      </nav>
+      {/* 메뉴 */}
+      <hr />
+      <Outlet /> {/* 각 컴포넌트의 내용이 뿌려질 위치 */}
+    </div>
+  );
+}
+
+export default Layout;
